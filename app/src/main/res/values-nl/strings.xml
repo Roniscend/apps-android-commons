@@ -378,6 +378,12 @@
   <string name="share_app_title">Toepassing delen</string>
   <string name="rotate">Draaien</string>
   <string name="crop">Bijsnijden</string>
+  <string name="blur">Vervagen</string>
+  <string name="autoblur">AutoBlur</string>
+  <string name="autodetect_title">Gezichten en kentekenplaten worden automatisch vervaagd.</string>
+  <string name="autodetect_description">U kunt foutpositieven verwijderen door op de knop ❌ van elk vervaagd gebied te klikken.</string>
+  <string name="autoblur_failed_to_load">Afbeelding voor AutoBlur kon niet worden geladen.</string>
+  <string name="autoblur_no_region_detected">Geen regio\'s gedetecteerd voor AutoBlur</string>
   <string name="error_fetching_nearby_places">Kan plaatsen in de buurt niet laden</string>
   <string name="no_pictures_in_this_area">Geen afbeeldingen in dit gebied.</string>
   <string name="no_nearby_places_around">Geen plaatsen in de buurt</string>
@@ -722,6 +728,7 @@
   <string name="custom_selector_already_uploaded_image_text">Deze afbeelding is al geüpload op Wikimedia Commons.</string>
   <string name="custom_selector_over_limit_warning">Om technische redenen kan de app niet op betrouwbare wijze meer dan %1$d afbeeldingen tegelijk uploaden. De uploadlimiet van %1$d is met %2$d overschreden.</string>
   <string name="custom_selector_dismiss_limit_warning_button_text">Sluiten</string>
+  <string name="custom_selector_duplicates_warning">Sommige geselecteerde afbeeldingen zijn duplicaten en worden vóór het uploaden verwijderd.</string>
   <string name="custom_selector_button_limit_text">Max: %1$d</string>
   <string name="custom_selector_limit_error_desc">Fout: uploadlimiet overschreden</string>
   <string name="place_state_wlm">WLM</string>
@@ -870,4 +877,9 @@
   <string name="license_cc0_long_description">Deze licentie geeft gebruikers het recht om het materiaal in elk medium of formaat te verspreiden, te remixen, aan te passen en erop voort te bouwen, zonder enige voorwaarden.</string>
   <string name="license_cc_by_long_description">Deze licentie geeft gebruikers het recht om het materiaal te verspreiden, te remixen, aan te passen en erop voort te bouwen in elk medium of formaat, zelfs voor commerciële doeleinden, zolang de maker maar wordt vermeld.</string>
   <string name="license_cc_by_sa_long_description">Deze licentie geeft gebruikers het recht om het materiaal te verspreiden, te remixen, aan te passen en erop voort te bouwen in elk medium of formaat, zelfs voor commerciële doeleinden, zolang de maker wordt vermeld en het nieuwe werk onder dezelfde voorwaarden wordt gelicenseerd.</string>
+  <string name="error_getting_image_properties">Fout bij het ophalen van de afbeeldingseigenschappen:</string>
+  <string name="error_blur_no_rectangle">Teken minstens één rechthoek op de foto</string>
+  <string name="error_applying_blur">Fout bij het toepassen van de vervaging</string>
+  <string name="failed_to_apply_crop">Bijsnijden is mislukt</string>
+  <string name="failed_to_save_image">Het opslaan van de afbeelding is mislukt</string>
 </resources>
