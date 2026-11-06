@@ -39,6 +39,7 @@ class UploadPresenter
         private var basicKvStoreFactory: ((String) -> BasicKvStore)? = null
 
         override fun cleanup() {
+            Timber.d("6846_DEBUG UploadPresenter.cleanup called")
             compositeDisposable.clear()
             repository.cleanup()
             view.showProgress(false)
@@ -191,6 +192,11 @@ class UploadPresenter
         override fun deletePictureAtIndex(index: Int) {
             val uploadableFiles = view.getUploadableFiles()
             uploadableFiles?.let {
+                Timber.d(
+                    "6846_DEBUG deletePictureAtIndex index=$index" +
+                        ", filePath=${uploadableFiles[index].getFilePath()}" +
+                        ", uploadableFiles.size=${uploadableFiles.size}",
+                )
                 view.setImageCancelled(true)
                 repository.deletePicture(uploadableFiles[index].getFilePath())
                 if (uploadableFiles.size == 1) {

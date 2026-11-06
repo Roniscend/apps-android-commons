@@ -176,6 +176,7 @@ class UploadActivity :
     @SuppressLint("CheckResult")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Timber.d("6846_DEBUG UploadActivity.onCreate")
 
         // Ensure basicKvStoreFactory is always initialized before use
         presenter?.setupBasicKvStoreFactory { BasicKvStore(this@UploadActivity, it) }
@@ -447,6 +448,7 @@ class UploadActivity :
         super.onNewIntent(intent)
         setIntent(intent)
         val action = intent.action
+        Timber.d("6846_DEBUG UploadActivity.onNewIntent action=$action")
         if (Intent.ACTION_SEND == action ||
             Intent.ACTION_SEND_MULTIPLE == action ||
             ContributionController.ACTION_INTERNAL_UPLOADS == action
@@ -840,6 +842,7 @@ class UploadActivity :
 
     private fun receiveInternalSharedItems() {
         val intent = intent
+        Timber.d("6846_DEBUG receiveInternalSharedItems called")
         Timber.d("Intent has EXTRA_FILES: ${EXTRA_FILES}")
         uploadableFiles =
             try {
@@ -1006,6 +1009,7 @@ class UploadActivity :
 
     override fun onDestroy() {
         super.onDestroy()
+        Timber.d("6846_DEBUG UploadActivity.onDestroy isFinishing=$isFinishing")
         // Resetting all values in store by clearing them
         store!!.clearAll()
         if (isFinishing) {

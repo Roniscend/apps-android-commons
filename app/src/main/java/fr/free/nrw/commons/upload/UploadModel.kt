@@ -63,12 +63,14 @@ class UploadModel
          * cleanup the resources, I am Singleton, preparing for fresh upload
          */
         fun cleanUp() {
+            Timber.d("6846_DEBUG cleanUp called, items.size=${items.size}, uris=${items.map { it.mediaUri }}")
             compositeDisposable.clear()
             fileProcessor.cleanup()
             items.clear()
             selectedCategories.clear()
             selectedDepictions.clear()
             selectedExistingDepictions.clear()
+            Timber.d("6846_DEBUG cleanUp done, items.size=${items.size}")
         }
 
         fun setSelectedCategories(categories: List<String>) {
@@ -95,6 +97,10 @@ class UploadModel
             similarImageInterface: SimilarImageInterface?,
             inAppPictureLocation: LatLng?,
         ): UploadItem {
+            Timber.d(
+                "6846_DEBUG createAndAddUploadItem called, filePath=${uploadableFile?.getFilePath()}" +
+                    ", items.size=${items.size}, items=${items.map { it.mediaUri }}",
+            )
             val dateTimeWithSource = uploadableFile?.getFileCreatedDate(context)
             var fileCreatedDate: Long = -1
             var createdTimestampSource = ""
@@ -135,6 +141,10 @@ class UploadModel
             if (!items.contains(uploadItem)) {
                 items.add(uploadItem)
             }
+            Timber.d(
+                "6846_DEBUG createAndAddUploadItem finished, items.size=${items.size}" +
+                    ", items=${items.map { it.mediaUri }}",
+            )
             return uploadItem
         }
 
@@ -175,6 +185,10 @@ class UploadModel
             }
 
         fun deletePicture(filePath: String) {
+            Timber.d(
+                "6846_DEBUG deletePicture called, filePath=$filePath" +
+                    ", items.size=${items.size}, items=${items.map { it.mediaUri }}",
+            )
             val iterator = items.iterator()
             while (iterator.hasNext()) {
                 if (iterator
@@ -187,6 +201,7 @@ class UploadModel
                     break
                 }
             }
+            Timber.d("6846_DEBUG after deletePicture, items.size=${items.size}")
             if (items.isEmpty()) {
                 cleanUp()
             }

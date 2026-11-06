@@ -54,6 +54,7 @@ class UploadMediaPresenter
         }
 
         override fun onDetachView() {
+            Timber.d("6846_DEBUG UploadMediaPresenter.onDetachView, clearing disposables")
             view = DUMMY
             compositeDisposable.clear()
         }
@@ -92,6 +93,7 @@ class UploadMediaPresenter
             place: Place?,
             inAppPictureLocation: LatLng?,
         ) {
+            Timber.d("6846_DEBUG receiveImage called, filePath=${uploadableFile?.getFilePath()}")
             view.showProgress(true)
             compositeDisposable.add(
                 repository
@@ -118,6 +120,9 @@ class UploadMediaPresenter
                     }.subscribeOn(ioScheduler)
                     .observeOn(mainThreadScheduler)
                     .subscribe({ uploadItem: UploadItem ->
+                        Timber.d(
+                            "6846_DEBUG receiveImage onNext, mediaUri=${uploadItem.mediaUri}",
+                        )
                         view.onImageProcessed(uploadItem)
                         view.updateMediaDetails(uploadItem.uploadMediaDetails)
                         view.showProgress(false)
